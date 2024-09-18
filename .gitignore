@@ -5,6 +5,18 @@
 /.pnp
 .pnp.js
 
+# Firebase config and credentials
+/src/utils/firebase.js
+/serviceAccountKey.json
+
+# Firebase project configuration
+.firebaserc
+firebase.json
+
+# Firebase Cloud Functions
+/functions/
+
+
 # testing
 /coverage
 
