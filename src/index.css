@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Ensure the body and html are styled to fill the screen */
+html, body {
+    @apply h-full w-full m-0 p-0;
+  }
+  

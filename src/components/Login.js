@@ -7,9 +7,9 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { AVATOR_URL, BG_URL } from "../utils/constant";
 
 const Login = () => {
   const [name, setName] = useState("");
@@ -22,8 +22,7 @@ const Login = () => {
   });
   const [erMessage, setErMessage] = useState(null);
   const [isSignIn, setIsSignIn] = useState(true);
-  const navigate = useNavigate();
-  const dispatch=useDispatch();
+  const dispatch = useDispatch();
 
   // Form submit handler
   const handleSubmit = (e) => {
@@ -52,24 +51,25 @@ const Login = () => {
             // Signed up
             const user = userCredential.user;
             updateProfile(user, {
-              displayName: name, photoURL: "https://avatars.githubusercontent.com/u/100723131?v=4"
-            }).then(() => {
-              // Profile updated!
-              const { uid, displayName, email, photoURL } = auth.currentUser;
-              dispatch(
-                addUser({
-                  uid: uid,
-                  displayName: displayName,
-                  email: email,
-                  photoURL: photoURL,
-                })
-              );
-              navigate("/browse");
-            }).catch((error) => {
-              // An error occurred
-              // ...
-            });
-            
+              displayName: name,
+              photoURL: AVATOR_URL,
+            })
+              .then(() => {
+                // Profile updated!
+                const { uid, displayName, email, photoURL } = auth.currentUser;
+                dispatch(
+                  addUser({
+                    uid: uid,
+                    displayName: displayName,
+                    email: email,
+                    photoURL: photoURL,
+                  })
+                );
+              })
+              .catch((error) => {
+                // An error occurred
+                // ...
+              });
           })
           .catch((error) => {
             const errorCode = error.code;
@@ -82,7 +82,6 @@ const Login = () => {
           .then((userCredential) => {
             // Signed in
             const user = userCredential.user;
-            navigate("/browse");
           })
           .catch((error) => {
             const errorCode = error.code;
@@ -102,7 +101,7 @@ const Login = () => {
       {/* Background Image */}
       <img
         className="brightness-50 w-full h-full object-cover"
-        src="https://assets.nflxext.com/ffe/siteui/vlv3/85ff76db-39e5-423a-afbc-97d3e74db71b/null/IN-en-20240909-TRIFECTA-perspective_b22117e0-4610-4d57-a695-20f77d241a4a_large.jpg"
+        src={BG_URL}
         alt="background"
       />
 
