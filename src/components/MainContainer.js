@@ -4,19 +4,14 @@ import VideoBackground from "./VideoBackground";
 import useMovieTrailer from "../hooks/useMovieTrailer";
 import { useSelector } from "react-redux";
 
-const MainContainer = ({ trailerId }) => {
+const MainContainer = ({ trailerId, title, overview }) => {
   useMovieTrailer({ trailerId });
   const trailer = useSelector((store) => store.movies.trailerKey);
   if (!trailer) return;
 
   return (
-    <div className=" w-full h-screen">
-      <VideoTitle
-        title={trailer.name}
-        para={
-          "Season 2 | Official Trailer | 21st Sept, Saturdays 8pm | Netflix"
-        }
-      />
+    <div className=" ">
+      <VideoTitle title={title} para={overview} />
       <VideoBackground videoKey={trailer.key} />
     </div>
   );

@@ -4,9 +4,11 @@
 /node_modules
 /.pnp
 .pnp.js
+.env
 
 # Firebase config and credentials
 /src/utils/firebase.js
+/src/utils/constant.js
 /serviceAccountKey.json
 
 # Firebase project configuration
@@ -16,6 +18,8 @@ firebase.json
 # Firebase Cloud Functions
 /functions/
 
+# Ignore constant.js in the utils folder
+/src/utils
 
 # testing
 /coverage

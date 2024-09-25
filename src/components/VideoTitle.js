@@ -2,10 +2,10 @@ import React from "react";
 
 const VideoTitle = ({ title, para }) => {
   return (
-    <div className="absolute w-screen h-screen py-72  text-white p-8  bg-gradient-to-r from-transparent via-black/70 to-transparent  ">
+    <div className="absolute w-screen h-screen py-72  text-white font-bold p-8  bg-gradient-to-r from-transparent via-black/70 to-transparent  ">
       <div className="mb-6">
         <h1 className="text-6xl font-bold mb-4 text-shadow-lg">{title}</h1>
-        <p className="w-2/3 text-lg leading-relaxed text-gray-300 drop-shadow-md">
+        <p className="w-4/12 text-lg leading-relaxed text-gray-300 drop-shadow-md">
           {para}
         </p>
       </div>
